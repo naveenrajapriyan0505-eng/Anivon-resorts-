@@ -1,0 +1,6 @@
+{
+  "name": "Anivon Resorts — Tropical Resort & Suite Booking",
+  "description": "Anivon Resorts booking experience with real-time suite availability checking, 360-degree room tours, and interactive island maps.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
