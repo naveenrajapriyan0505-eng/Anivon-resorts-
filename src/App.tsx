@@ -110,13 +110,13 @@ const HERO_SLIDES: HeroSlide[] = [
   {
     id: 0,
     image: "/src/assets/images/hero_lagoon_aerial_1794994734249.jpg",
-    thumbLabel: "Anivon Lagoon Sanctuary",
+    thumbLabel: "Anvion Lagoon Sanctuary",
     photoPos: "center 55%",
-    titleLines: ["ANIVON RESORTS"],
+    titleLines: ["ANVION RESORT"],
     titleSizeDesktop: "8.2vw",
     titleLeft: "2.6vw",
     titleTop: "calc(74px + 3.2vh)",
-    captionTitle: "Anivon Lagoon Suites",
+    captionTitle: "Anvion Lagoon Suites",
     captionDesc:
       "Reserve private overwater villas, sunlit ocean pavilions, and island sanctuaries with live suite availability.",
   },
@@ -1264,7 +1264,7 @@ export default function App() {
               }}
               className="whitespace-nowrap shrink-0 text-[26px] font-light tracking-[-0.01em] transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-[#40c4aa]"
             >
-              Anivon Resorts
+              Anvion Resort
             </button>
 
             {!isMobile && (
@@ -1452,7 +1452,7 @@ export default function App() {
                   onClick={() => {
                     setNavMenuOpen(false);
                     showToast(
-                      "Anivon Concierge: reservations@anivonresorts.example"
+                      "Anvion Concierge: reservations@anvionresort.example"
                     );
                   }}
                   className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-left text-sm font-medium hover:bg-[#e0f7f4]"
@@ -2278,7 +2278,7 @@ export default function App() {
                 className="inline-flex items-center gap-1.5 rounded-full border border-[#112426]/15 bg-[#fdfaf6]/90 px-4 py-2 font-semibold text-[#112426] transition-colors hover:border-[#40c4aa] hover:bg-[#e0f7f4]"
               >
                 <ArrowLeft className="h-3.5 w-3.5" />
-                <span>Back to Anivon Resorts</span>
+                <span>Back to Anvion Resort</span>
               </button>
               <span className="hidden sm:inline">Home</span>
               <span className="hidden sm:inline">›</span>
@@ -2799,7 +2799,7 @@ export default function App() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
           <div>
             <div className="text-xl font-light text-[#112426]">
-              Anivon Resorts
+              Anvion Resort
             </div>
             <p className="mt-1 text-xs text-[#425a5d]">
               Private tropical lagoon suites, beachfront pavilions &amp; coastal resort sanctuaries.
@@ -2830,13 +2830,13 @@ export default function App() {
             <button
               type="button"
               onClick={() =>
-                showToast("Anivon Concierge: reservations@anivonresorts.example")
+                showToast("Anvion Concierge: reservations@anvionresort.example")
               }
               className="hover:text-[#158b76]"
             >
               Concierge Desk
             </button>
-            <span>© 2026 Anivon Resorts</span>
+            <span>© 2026 Anvion Resort</span>
           </div>
         </div>
       </footer>
@@ -2881,7 +2881,7 @@ export default function App() {
                 Home
               </button>
               <span className="text-[#425a5d]">›</span>
-              <span className="text-[#425a5d]">Anivon Resorts</span>
+              <span className="text-[#425a5d]">Anvion Resort</span>
               <span className="text-[#425a5d]">›</span>
               <span className="text-[#425a5d]">{selectedStay.roomType}</span>
               <span className="text-[#425a5d]">›</span>
@@ -3464,7 +3464,7 @@ export default function App() {
                           setUserBookings((prev) => [newRes, ...prev]);
                           setLastBookedRef(refCode);
                           showToast(
-                            `Booking ${refCode} confirmed at Anivon Resorts`
+                            `Booking ${refCode} confirmed at Anvion Resort`
                           );
                         }}
                         className={`mt-4 w-full rounded-full py-3.5 text-sm font-semibold transition-all duration-300 ${
@@ -3739,7 +3739,7 @@ export default function App() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="Anivon Resorts Reservations"
+          aria-label="Anvion Resort Reservations"
           className="fixed inset-0 z-[660] flex justify-end bg-[#0c2224]/45 backdrop-blur-sm"
           onClick={() => setReservationsDrawerOpen(false)}
         >
@@ -3753,7 +3753,7 @@ export default function App() {
                   My Bookings
                 </h2>
                 <p className="text-xs text-[#425a5d]">
-                  Anivon Resorts · Live room availability sync
+                  Anvion Resort · Live room availability sync
                 </p>
               </div>
               <button

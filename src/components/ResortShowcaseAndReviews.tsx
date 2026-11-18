@@ -244,7 +244,7 @@ export const ResortShowcaseSection: React.FC<ShowcaseProps> = ({
         <div>
           <div className="mb-1.5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#158b76]">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Anivon Resorts Collection</span>
+            <span>Anvion Resort Collection</span>
           </div>
           <h2
             className="font-display text-[#112426] tracking-[-0.01em]"
@@ -487,7 +487,7 @@ export const GuestReviewsSection: React.FC<ReviewsProps> = ({
           </h2>
           <p className="mt-1 text-sm text-[#425a5d]">
             Stories from guests who reserved private villas and lagoon suites
-            across Anivon Resorts.
+            across Anvion Resort.
           </p>
         </div>
 
