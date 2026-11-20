@@ -158,7 +158,7 @@ const STAYS: StayProperty[] = [
     roomType: "Overwater Pool Suite",
     area: "Koh Samui Wing",
     island: "Koh Samui",
-    price: 1300,
+    price: 108000,
     rating: "4.9",
     reviews: 142,
     maxGuests: 4,
@@ -193,7 +193,7 @@ const STAYS: StayProperty[] = [
     roomType: "Beachfront Villa",
     area: "Railay Wing, Krabi",
     island: "Krabi",
-    price: 1200,
+    price: 98000,
     rating: "4.8",
     reviews: 128,
     maxGuests: 4,
@@ -228,7 +228,7 @@ const STAYS: StayProperty[] = [
     roomType: "Cliffside Infinity Suite",
     area: "Kamala Headland, Phuket",
     island: "Phuket",
-    price: 940,
+    price: 78000,
     rating: "4.9",
     reviews: 96,
     maxGuests: 6,
@@ -261,7 +261,7 @@ const STAYS: StayProperty[] = [
     roomType: "Garden Plunge Cabana",
     area: "Sairee Cove, Koh Tao",
     island: "Koh Tao",
-    price: 420,
+    price: 35000,
     rating: "4.8",
     reviews: 114,
     maxGuests: 2,
@@ -293,7 +293,7 @@ const STAYS: StayProperty[] = [
     roomType: "Oceanfront Deck Suite",
     area: "Koh Lanta Wing, Krabi",
     island: "Krabi",
-    price: 380,
+    price: 32000,
     rating: "4.8",
     reviews: 89,
     maxGuests: 3,
@@ -325,7 +325,7 @@ const STAYS: StayProperty[] = [
     roomType: "Lagoon Pier Bungalow",
     area: "Phi Phi Reserve",
     island: "Phi Phi",
-    price: 560,
+    price: 46500,
     rating: "4.9",
     reviews: 164,
     maxGuests: 2,
@@ -360,7 +360,7 @@ const STAYS: StayProperty[] = [
     roomType: "Two-Story Bay Residence",
     area: "Phang Nga Wing, Phuket",
     island: "Phuket",
-    price: 1150,
+    price: 95000,
     rating: "4.9",
     reviews: 73,
     maxGuests: 6,
@@ -393,7 +393,7 @@ const STAYS: StayProperty[] = [
     roomType: "Courtyard Lap Suite",
     area: "Lamai Wing, Koh Samui",
     island: "Koh Samui",
-    price: 780,
+    price: 65000,
     rating: "4.8",
     reviews: 105,
     maxGuests: 4,
@@ -1016,7 +1016,16 @@ export default function App() {
 
   /* Nav Extras */
   const [currencyIdx, setCurrencyIdx] = useState(0);
-  const currencies = ["USD $", "THB ฿", "EUR €"];
+  const currencies = [
+    { label: "INR ₹", symbol: "₹", rate: 1, locale: "en-IN" },
+    { label: "THB ฿", symbol: "฿", rate: 0.41, locale: "en-US" },
+    { label: "EUR €", symbol: "€", rate: 0.011, locale: "en-US" },
+  ];
+  const activeCurrency = currencies[currencyIdx];
+  const formatPrice = (amountInr: number) => {
+    const converted = Math.round(amountInr * activeCurrency.rate);
+    return `${activeCurrency.symbol}${converted.toLocaleString(activeCurrency.locale)}`;
+  };
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const [visitorRole, setVisitorRole] = useState("Resort Guest");
   const [visitorMenuOpen, setVisitorMenuOpen] = useState(false);
@@ -1369,7 +1378,9 @@ export default function App() {
               onClick={() => {
                 const next = (currencyIdx + 1) % currencies.length;
                 setCurrencyIdx(next);
-                showToast(`Display currency switched to ${currencies[next]}`);
+                showToast(
+                  `Display currency switched to ${currencies[next].label}`
+                );
               }}
               className="flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-white/15"
             >
@@ -2719,7 +2730,7 @@ export default function App() {
                         WebkitBackdropFilter: "blur(8px)",
                       }}
                     >
-                      ${stay.price.toLocaleString()}
+                      {formatPrice(stay.price)}
                       <span className="font-normal text-[#425a5d]">/night</span>
                     </div>
 
@@ -3156,14 +3167,14 @@ export default function App() {
                     >
                       <div className="flex items-baseline justify-between">
                         <div className="text-[26px] font-bold tabular-nums text-[#112426]">
-                          ${selectedStay.price.toLocaleString()}
+                          {formatPrice(selectedStay.price)}
                           <span className="text-sm font-normal text-[#425a5d]">
                             /night
                           </span>
                         </div>
                         <span className="text-xs font-medium tabular-nums text-[#158b76]">
-                          {nightsCount} {nightsCount === 1 ? "night" : "nights"} · $
-                          {(selectedStay.price * nightsCount).toLocaleString()} total
+                          {nightsCount} {nightsCount === 1 ? "night" : "nights"} ·{" "}
+                          {formatPrice(selectedStay.price * nightsCount)} total
                         </span>
                       </div>
 
@@ -3417,11 +3428,11 @@ export default function App() {
                       <div className="mt-4 space-y-1.5 border-t border-[#112426]/10 pt-3 text-xs text-[#425a5d]">
                         <div className="flex justify-between tabular-nums">
                           <span>
-                            ${selectedStay.price.toLocaleString()} × {nightsCount}{" "}
+                            {formatPrice(selectedStay.price)} × {nightsCount}{" "}
                             {nightsCount === 1 ? "night" : "nights"}
                           </span>
                           <span className="font-medium text-[#112426]">
-                            ${(selectedStay.price * nightsCount).toLocaleString()}
+                            {formatPrice(selectedStay.price * nightsCount)}
                           </span>
                         </div>
                         <div className="flex justify-between">
@@ -3433,7 +3444,7 @@ export default function App() {
                         <div className="flex justify-between pt-1 text-sm font-bold tabular-nums text-[#112426]">
                           <span>Total</span>
                           <span>
-                            ${(selectedStay.price * nightsCount).toLocaleString()}
+                            {formatPrice(selectedStay.price * nightsCount)}
                           </span>
                         </div>
                       </div>
@@ -3640,7 +3651,7 @@ export default function App() {
                               backdropFilter: "blur(8px)",
                             }}
                           >
-                            ${sim.price.toLocaleString()}
+                            {formatPrice(sim.price)}
                             <span className="font-normal text-[#425a5d]">
                               /night
                             </span>
@@ -3844,7 +3855,7 @@ export default function App() {
                         </div>
                         <div className="text-right tabular-nums">
                           <span className="font-bold text-[#112426]">
-                            ${booking.totalPrice.toLocaleString()}
+                            {formatPrice(booking.totalPrice)}
                           </span>{" "}
                           <span className="text-[#425a5d]">
                             ({booking.guests} guests)
